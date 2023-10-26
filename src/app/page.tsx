@@ -1,3 +1,5 @@
 export default function Home() {
-  return <h1 className="font-bebas">Hello, this is my new Portfolio</h1>;
+  return (
+    <main className='bg-[url("/background.png")] min-h-[100vh] bg-right-top bg-no-repeat'></main>
+  );
 }
