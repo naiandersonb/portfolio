@@ -16,7 +16,7 @@ export function LinkItem({ href, children, ...rest }: LinkItemProps) {
   return (
     <Link href={href} {...rest}>
       <p
-        className={`font-bebas text-3xl md:text-lg ${
+        className={`font-inter text-3xl md:text-lg ${
           isSelected ? 'text-blue-400' : 'dark:text-zinc-50 text-zinc-900'
         }`}
       >
