@@ -1,7 +1,7 @@
 'use client';
 
-import { SunDim } from '@phosphor-icons/react';
-import { LinkItem } from '../atoms/LinkItem';
+import { SunDim, Translate } from '@phosphor-icons/react';
+import { LinkItem } from '../atoms';
 import { changeAppTheme } from '@/utils';
 
 export function Header() {
@@ -9,18 +9,25 @@ export function Header() {
     <header className="fixed top-0 left-0 right-0 h-20 flex items-center justify-center">
       <div className="flex flex-row items-center max-w-[1200px] w-full justify-between px-8">
         <LinkItem href="/">Logo</LinkItem>
-        <nav className="flex flex-row gap-4">
+
+        <nav className="flex flex-row gap-8">
           <LinkItem href="projects">Projetos</LinkItem>
           <LinkItem href="content">Conteúdos</LinkItem>
           <LinkItem href="blog">Blog</LinkItem>
+        </nav>
+
+        <div className="flex flex-row gap-4">
+          <button className="dark:text-zinc-50 text-zinc-900">
+            <Translate size={28} />
+          </button>
 
           <button
-            onClick={changeAppTheme}
             className="dark:text-zinc-50 text-zinc-900"
+            onClick={changeAppTheme}
           >
             <SunDim size={32} />
           </button>
-        </nav>
+        </div>
       </div>
     </header>
   );

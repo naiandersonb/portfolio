@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter, Bebas_Neue } from 'next/font/google';
 import './globals.css';
+import { Header } from '@/components/organisms/Header';
 
 const inter = Inter({
   variable: '--inter',
@@ -26,6 +27,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={`${inter.variable} ${bebasNeue.variable}`}>
+        <Header />
         {children}
       </body>
     </html>

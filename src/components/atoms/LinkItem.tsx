@@ -17,7 +17,9 @@ export function LinkItem({ href, children, ...rest }: LinkItemProps) {
     <Link href={href} {...rest}>
       <p
         className={`font-inter text-3xl md:text-lg ${
-          isSelected ? 'text-blue-400' : 'dark:text-zinc-50 text-zinc-900'
+          isSelected
+            ? 'text-blue-400'
+            : 'dark:text-zinc-50 text-zinc-900 hover:text-blue-400 transition-colors duration-100'
         }`}
       >
         {children}
