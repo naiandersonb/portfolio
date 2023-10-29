@@ -2,6 +2,7 @@
 
 import { SunDim } from '@phosphor-icons/react';
 import { LinkItem } from '../atoms/LinkItem';
+import { changeAppTheme } from '@/utils';
 
 export function Header() {
   return (
@@ -13,7 +14,10 @@ export function Header() {
           <LinkItem href="content">Conteúdos</LinkItem>
           <LinkItem href="blog">Blog</LinkItem>
 
-          <button className="dark:text-zinc-50 text-zinc-900">
+          <button
+            onClick={changeAppTheme}
+            className="dark:text-zinc-50 text-zinc-900"
+          >
             <SunDim size={32} />
           </button>
         </nav>
