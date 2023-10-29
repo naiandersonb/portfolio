@@ -28,7 +28,7 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body className={`${inter.variable} ${bebasNeue.variable}`}>
         <Header />
-        {children}
+        <div className="max-w-[1200px] mx-auto px-8 mt-24">{children}</div>
       </body>
     </html>
   );
