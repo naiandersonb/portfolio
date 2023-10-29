@@ -3,6 +3,7 @@
 import { SunDim, Translate } from '@phosphor-icons/react';
 import { LinkItem } from '../atoms';
 import { changeAppTheme } from '@/utils';
+import { Dropdown } from '../molecules';
 
 export function Header() {
   return (
@@ -17,10 +18,9 @@ export function Header() {
         </nav>
 
         <div className="flex flex-row gap-4">
-          <button className="dark:text-zinc-50 text-zinc-900">
+          <Dropdown>
             <Translate size={28} />
-          </button>
-
+          </Dropdown>
           <button
             className="dark:text-zinc-50 text-zinc-900"
             onClick={changeAppTheme}
