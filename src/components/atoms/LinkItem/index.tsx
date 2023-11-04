@@ -14,16 +14,16 @@ export function LinkItem({ href, children, ...rest }: LinkItemProps) {
   const isSelected = pathname === href;
 
   return (
-    <Link href={href} {...rest}>
-      <p
-        className={`font-inter text-3xl md:text-lg ${
-          isSelected
-            ? 'text-blue-400'
-            : 'dark:text-zinc-50 text-zinc-900 hover:text-blue-400 transition-colors duration-100'
-        }`}
-      >
-        {children}
-      </p>
+    <Link
+      className={`font-inter text-3xl md:text-base ${
+        isSelected
+          ? 'text-blue-400'
+          : 'dark:text-zinc-400 text-zinc-500 hover:text-blue-400 dark:hover:text-blue-400 transition-colors duration-100'
+      }`}
+      href={href}
+      {...rest}
+    >
+      {children}
     </Link>
   );
 }
