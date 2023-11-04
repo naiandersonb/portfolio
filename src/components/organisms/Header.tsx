@@ -4,16 +4,19 @@ import { List, SunDim, Translate } from '@phosphor-icons/react';
 import { LinkItem } from '../atoms';
 import { changeAppTheme } from '@/utils';
 import { TranslateDropdown } from '../molecules';
+import { Logo } from '../atoms';
 
 export function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 h-20 flex items-center justify-center">
       <div className="flex flex-row items-center max-w-[1200px] w-full justify-between px-8">
-        <LinkItem href="/">Logo</LinkItem>
+        <Logo />
 
-        <nav className="md:flex hidden flex-row gap-8">
+        <nav className="md:flex hidden flex-row gap-2">
           <LinkItem href="projects">Projetos</LinkItem>
+          <p className="dark:text-zinc-400 text-zinc-500">/</p>
           <LinkItem href="content">Conteúdos</LinkItem>
+          <p className="dark:text-zinc-400 text-zinc-500">/</p>
           <LinkItem href="blog">Blog</LinkItem>
         </nav>
 
@@ -21,6 +24,7 @@ export function Header() {
           <TranslateDropdown>
             <Translate size={28} />
           </TranslateDropdown>
+
           <button
             className="dark:text-zinc-50 text-zinc-900"
             onClick={changeAppTheme}

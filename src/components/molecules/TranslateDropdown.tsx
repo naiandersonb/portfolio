@@ -21,7 +21,7 @@ export function TranslateDropdown({ children }: DropdownProps) {
         <DropdownMenu.Content className="dark:bg-zinc-800 bg-zinc-100 border border-zinc-200 rounded-md">
           <DropdownMenu.Item
             onClick={() => changeAppLanguage('br')}
-            className="font-inter cursor-pointer hover:bg-zinc-300 w-full px-3 py-2 border-none"
+            className="font-inter  cursor-pointer hover:bg-zinc-300 w-full px-3 py-2 border-none"
           >
             Português
           </DropdownMenu.Item>
