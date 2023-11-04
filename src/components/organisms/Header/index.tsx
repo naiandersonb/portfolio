@@ -1,14 +1,14 @@
 'use client';
 
 import { List, SunDim, Translate } from '@phosphor-icons/react';
-import { LinkItem } from '../atoms';
+import { LinkItem } from '../../atoms';
 import { changeAppTheme } from '@/utils';
-import { TranslateDropdown } from '../molecules';
-import { Logo } from '../atoms';
+import { TranslateDropdown } from '../../molecules';
+import { Logo } from '../../atoms';
 
 export function Header() {
   return (
-    <header className="fixed top-0 left-0 right-0 h-20 flex items-center justify-center">
+    <header className="fixed top-0 left-0 right-0 h-20 flex items-center justify-center bg-[rgba(0, 0, 0, 0.24)] backdrop-blur-md">
       <div className="flex flex-row items-center max-w-[1200px] w-full justify-between px-8">
         <Logo />
 

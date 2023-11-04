@@ -1,5 +1,12 @@
-import { MainBanner } from '@/components/organisms/MainBanner';
+import { MainBanner } from '@/components/organisms';
 
 export default function Home() {
-  return <MainBanner />;
+  return (
+    <>
+      <MainBanner />
+      <MainBanner />
+      <MainBanner />
+      <MainBanner />
+    </>
+  );
 }

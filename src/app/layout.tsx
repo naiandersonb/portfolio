@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import { Inter, Bebas_Neue } from 'next/font/google';
 import './globals.css';
-import { Header } from '@/components/organisms/Header';
-import { Footer } from '@/components/molecules/Footer';
+import { Header } from '@/components/organisms';
+import { Footer } from '@/components/molecules';
 
 const inter = Inter({
   variable: '--inter',
