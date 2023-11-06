@@ -1,7 +1,8 @@
 'use client';
 
 import { useTranslate } from '@/contexts/AppTranslateContext';
-import { ReactNode, useState } from 'react';
+import { useToggle } from '@/hooks/useToggle';
+import { ReactNode } from 'react';
 
 type Lang = 'en-US' | 'pt-BR';
 
@@ -26,21 +27,19 @@ const ListItem = ({ onClick, title }: ListItemProps) => {
 };
 
 export function TranslateDropdown({ children }: DropdownProps) {
-  const [isOpen, setIsOpen] = useState(false);
+  const { onToggle, onClose, isOpen } = useToggle();
   const { changeAppLanguage } = useTranslate();
-
-  const toggleIsOpen = () => setIsOpen((prev) => !prev);
 
   const handleChangeAppLanguage = (lang: Lang) => {
     changeAppLanguage(lang);
-    setIsOpen(false);
+    onClose();
   };
 
   return (
     <div className="relative">
       <button
         className="bg-transparent py-2 dark:text-zinc-50 text-zinc-900"
-        onClick={toggleIsOpen}
+        onClick={onToggle}
       >
         {children}
       </button>

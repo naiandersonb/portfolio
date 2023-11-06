@@ -1,12 +1,13 @@
 'use client';
 
 import { SunDim, Translate } from '@phosphor-icons/react';
-import { Twirl as Hamburger } from 'hamburger-react';
 import { LinkItem } from '../../atoms';
 import { changeAppTheme } from '@/utils';
 import { TranslateDropdown } from '../../molecules';
 import { Logo } from '../../atoms';
 import { useTranslate } from '@/contexts/AppTranslateContext';
+import { MobileMenu } from '@/components/molecules';
+import { Divider } from '@/components/atoms';
 
 export function Header() {
   const { t } = useTranslate('header');
@@ -36,9 +37,13 @@ export function Header() {
             <Translate size={24} />
           </TranslateDropdown>
 
-          <button>
-            <Hamburger size={24} />
-          </button>
+          <MobileMenu>
+            <LinkItem href="projects">{t('projects')}</LinkItem>
+            <Divider />
+            <LinkItem href="content">{t('content')}</LinkItem>
+            <Divider />
+            <LinkItem href="blog">Blog</LinkItem>
+          </MobileMenu>
         </div>
       </div>
     </header>
