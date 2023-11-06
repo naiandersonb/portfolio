@@ -1,4 +1,8 @@
+import { useTranslate } from '@/contexts/AppTranslateContext';
+
 export function ResumeButton() {
+  const { t } = useTranslate('home');
+
   return (
     <a
       href="/resume"
@@ -6,7 +10,7 @@ export function ResumeButton() {
       target="_blank"
       rel="noreferrer"
     >
-      Ver meu currículo
+      {t('resumeButton')}
     </a>
   );
 }
