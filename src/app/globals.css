@@ -4,6 +4,7 @@
 
 @layer base {
   body {
-      @apply dark:bg-zinc-950 bg-zinc-100
+    -webkit-font-smoothing: antialiased;
+    @apply dark:bg-zinc-950 bg-zinc-100
   }
 }

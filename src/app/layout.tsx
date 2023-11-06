@@ -3,6 +3,7 @@ import { Inter, Bebas_Neue } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/organisms';
 import { Footer } from '@/components/molecules';
+import { AppTranslateProvider } from '@/contexts/AppTranslateContext';
 
 const inter = Inter({
   variable: '--inter',
@@ -28,9 +29,11 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={`${inter.variable} ${bebasNeue.variable}`}>
-        <Header />
-        <div className="max-w-[1200px] mx-auto px-8 mt-24">{children}</div>
-        <Footer />
+        <AppTranslateProvider>
+          <Header />
+          <div className="max-w-[1200px] mx-auto px-8 mt-24">{children}</div>
+          <Footer />
+        </AppTranslateProvider>
       </body>
     </html>
   );
