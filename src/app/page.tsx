@@ -16,5 +16,9 @@ export default function Home() {
 
   if (isLoading) return <Loading />;
 
-  return <MainBanner />;
+  return (
+    <div className="container">
+      <MainBanner />
+    </div>
+  );
 }
