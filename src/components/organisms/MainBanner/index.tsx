@@ -3,19 +3,25 @@
 import { ResumeButton, Text } from '@/components/atoms';
 import { socialMediaData } from './socialMediaData';
 import { useTranslate } from '@/contexts/AppTranslateContext';
+import { useStore } from '@/zustand-store';
 
 export function MainBanner() {
+  const { user } = useStore((state) => {
+    return { user: state.user };
+  });
+
   const { t } = useTranslate('home');
+
   return (
     <main className="w-full min-h-[85vh] flex items-center justify-center flex-col gap-8">
       <img
         className="w-[130px] h-[130px] rounded-full"
-        src="https://avatars.githubusercontent.com/u/72632956?v=4"
+        src={user?.avatarUrl}
         alt=""
       />
 
       <h1 className="font-bold max-w-[900px] dark:text-zinc-50 text-zinc-950 font-inter text-center md:text-6xl sm:text-3xl text-2xl">
-        Naianderson Bruno - {t('title')}.
+        {user?.name} - {t('title')}.
       </h1>
 
       <section className="max-w-[600px] text-center flex flex-col gap-6">
@@ -27,7 +33,7 @@ export function MainBanner() {
             target="_blank"
             rel="noreferrer"
           >
-            TheMembers
+            {user?.company}
           </a>
           . {t('currentResidence')}.
         </Text>

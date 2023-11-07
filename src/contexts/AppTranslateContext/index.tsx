@@ -1,6 +1,5 @@
 'use client';
 
-import { Loading } from '@/components/molecules';
 import { enUS } from '@/dictionary/en-US';
 import { Dictionary } from '@/dictionary/interface';
 import { ptBR } from '@/dictionary/pt-BR';
@@ -58,22 +57,16 @@ export function AppTranslateProvider({ children }: AppTranslateProviderProps) {
     [currentLanguage, language]
   );
 
-  const [load, setLoad] = useState(true);
-
   useEffect(() => {
     if (typeof localStorage !== 'undefined') {
       const lang = localStorage.getItem('@app:language') ?? 'en-US';
       setLanguage(lang as Lang);
-
-      setTimeout(() => {
-        setLoad(false);
-      }, 1000);
     }
   }, []);
 
   return (
     <AppTranslateContext.Provider value={{ changeAppLanguage, translate }}>
-      {load ? <Loading /> : children}
+      {children}
     </AppTranslateContext.Provider>
   );
 }
