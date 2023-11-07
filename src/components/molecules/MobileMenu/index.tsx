@@ -23,7 +23,7 @@ export function MobileMenu({ children }: MobileMenuProps) {
       <div
         className={`fixed h-[100vh] w-[100vw] top-0 ${
           isOpen ? 'right-0' : 'right-[-100vw]'
-        } dark:bg-zinc-950 flex flex-col px-8 pt-32 gap-5 transition-all`}
+        } dark:bg-zinc-950 bg-zinc-100 flex flex-col px-8 pt-32 gap-5 transition-all`}
       >
         {children}
       </div>

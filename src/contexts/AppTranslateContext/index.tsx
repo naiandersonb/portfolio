@@ -1,5 +1,6 @@
 'use client';
 
+import { Loading } from '@/components/molecules';
 import { enUS } from '@/dictionary/en-US';
 import { Dictionary } from '@/dictionary/interface';
 import { ptBR } from '@/dictionary/pt-BR';
@@ -8,7 +9,8 @@ import {
   createContext,
   useCallback,
   useState,
-  useContext
+  useContext,
+  useEffect
 } from 'react';
 
 type Lang = 'en-US' | 'pt-BR';
@@ -28,11 +30,13 @@ export const AppTranslateContext = createContext(
 
 export function AppTranslateProvider({ children }: AppTranslateProviderProps) {
   const [currentLanguage, setCurrentLanguage] = useState({} as Dictionary);
+  const [language, setLanguage] = useState<Lang>('en-US');
 
   const changeAppLanguage = useCallback((lang: Lang) => {
     if (lang === 'en-US') setCurrentLanguage(enUS);
     if (lang === 'pt-BR') setCurrentLanguage(ptBR);
 
+    setLanguage(lang);
     localStorage.setItem('@app:language', lang);
   }, []);
 
@@ -40,21 +44,36 @@ export function AppTranslateProvider({ children }: AppTranslateProviderProps) {
     (value: string, key: string) => {
       if (!currentLanguage) return value;
 
-      const lang = localStorage.getItem('@app:language') ?? 'en-US';
+      try {
+        const dictionary = language === 'en-US' ? enUS : ptBR;
+        const langData = dictionary[key];
 
-      const dictionary = lang === 'en-US' ? enUS : ptBR;
-      const langData = dictionary[key];
+        if (!langData) return value;
 
-      if (!langData) return value;
-
-      return langData[value] ?? value;
+        return langData[value] ?? value;
+      } catch (error) {
+        throw new Error('Erro ao traduzir a página');
+      }
     },
-    [currentLanguage]
+    [currentLanguage, language]
   );
+
+  const [load, setLoad] = useState(true);
+
+  useEffect(() => {
+    if (typeof localStorage !== 'undefined') {
+      const lang = localStorage.getItem('@app:language') ?? 'en-US';
+      setLanguage(lang as Lang);
+
+      setTimeout(() => {
+        setLoad(false);
+      }, 1000);
+    }
+  }, []);
 
   return (
     <AppTranslateContext.Provider value={{ changeAppLanguage, translate }}>
-      {children}
+      {load ? <Loading /> : children}
     </AppTranslateContext.Provider>
   );
 }

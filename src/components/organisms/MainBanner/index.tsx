@@ -14,7 +14,7 @@ export function MainBanner() {
         alt=""
       />
 
-      <h1 className="font-bold max-w-[1000px] dark:text-zinc-50 text-zinc-950 font-inter text-center md:text-6xl sm:text-3xl text-2xl">
+      <h1 className="font-bold max-w-[900px] dark:text-zinc-50 text-zinc-950 font-inter text-center md:text-6xl sm:text-3xl text-2xl">
         Naianderson Bruno - {t('title')}.
       </h1>
 
