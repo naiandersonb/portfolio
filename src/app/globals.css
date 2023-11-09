@@ -10,5 +10,13 @@
 }
 
 .container {
-@apply max-w-[1200px] mx-auto px-8 mt-24
+@apply max-w-[1200px] mx-auto px-8
+}
+
+::-webkit-scrollbar {
+  @apply w-1 bg-transparent
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-zinc-900 w-1 rounded-md
 }

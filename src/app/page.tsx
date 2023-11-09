@@ -1,6 +1,7 @@
 'use client';
 
 import { Loading } from '@/components/molecules';
+import { Skills } from '@/components/molecules/Skills';
 import { MainBanner } from '@/components/organisms';
 import { useStore } from '@/zustand-store';
 import { useEffect } from 'react';
@@ -17,8 +18,11 @@ export default function Home() {
   if (isLoading) return <Loading />;
 
   return (
-    <div className="container">
-      <MainBanner />
-    </div>
+    <>
+      <div className="container mt-24">
+        <MainBanner />
+      </div>
+      <Skills />
+    </>
   );
 }

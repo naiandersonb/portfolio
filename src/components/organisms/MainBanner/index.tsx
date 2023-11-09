@@ -13,7 +13,7 @@ export function MainBanner() {
   const { t } = useTranslate('home');
 
   return (
-    <main className="w-full min-h-[85vh] flex items-center justify-center flex-col gap-8">
+    <main className="w-full min-h-[75vh] flex items-center justify-center flex-col gap-8">
       <img
         className="w-[130px] h-[130px] rounded-full"
         src={user?.avatarUrl}
