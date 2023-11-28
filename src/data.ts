@@ -1,11 +1,11 @@
-interface Project {
-  title: string;
-  subtitle: string;
-  linkDemo: string;
-  repo: string;
-  stacks?: string[];
-  thumbnail?: string;
-}
+import { Project } from './interfaces/Project';
+
+const stackColors = {
+  REACT_JS: 'bg-blue-400 ',
+  STYLED_COMPONENTS: 'bg-yellow-400',
+  NODE_JS: 'bg-green-400 '
+} as const;
+
 export const projects: Project[] = [
   {
     title: 'projeto 01',
@@ -13,8 +13,12 @@ export const projects: Project[] = [
       ' Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae rem officia ullam odit, expedita, exercitationem blanditiis in minus ab ipsum, voluptas laudantium nihil. Ex impedit commodi sint exercitationem, magni minima.',
     repo: 'http://github.com/teste/teste',
     linkDemo: 'https://dribbble.com/plainthingstudio',
-    stacks: ['react js', 'styled components', 'node js'],
-    thumbnail: 'project-base-img.svg'
+    stacks: [
+      { name: 'react js', color: stackColors.REACT_JS },
+      { name: 'styled components', color: stackColors.STYLED_COMPONENTS },
+      { name: 'node js', color: stackColors.NODE_JS }
+    ],
+    thumbnail: '/images/cabeca_de_teia.jpg'
   },
   {
     title: 'projeto 02',
@@ -22,8 +26,12 @@ export const projects: Project[] = [
       ' Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae rem officia ullam odit, expedita, exercitationem blanditiis in minus ab ipsum, voluptas laudantium nihil. Ex impedit commodi sint exercitationem, magni minima.',
     repo: 'http://github.com/teste/teste',
     linkDemo: 'https://dribbble.com/plainthingstudio',
-    stacks: ['react js', 'styled components', 'node js'],
-    thumbnail: 'project-base-img.svg'
+    stacks: [
+      { name: 'react js', color: stackColors.REACT_JS },
+      { name: 'styled components', color: stackColors.STYLED_COMPONENTS },
+      { name: 'node js', color: stackColors.NODE_JS }
+    ],
+    thumbnail: '/images/cacada_selvagem.jpg'
   },
   {
     title: 'projeto 03',
@@ -31,8 +39,12 @@ export const projects: Project[] = [
       ' Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae rem officia ullam odit, expedita, exercitationem blanditiis in minus ab ipsum, voluptas laudantium nihil. Ex impedit commodi sint exercitationem, magni minima.',
     repo: 'http://github.com/teste/teste',
     linkDemo: 'https://dribbble.com/plainthingstudio',
-    stacks: ['react js', 'styled components', 'node js'],
-    thumbnail: 'project-base-img.svg'
+    stacks: [
+      { name: 'react js', color: stackColors.REACT_JS },
+      { name: 'styled components', color: stackColors.STYLED_COMPONENTS },
+      { name: 'node js', color: stackColors.NODE_JS }
+    ],
+    thumbnail: '/images/limbo.jpg'
   },
   {
     title: 'projeto 04',
@@ -40,6 +52,6 @@ export const projects: Project[] = [
       ' Lorem ipsum, dolor sit amet consectetur adipisicing elit. Beatae rem officia ullam odit, expedita, exercitationem blanditiis in minus ab ipsum, voluptas laudantium nihil. Ex impedit commodi sint exercitationem, magni minima.',
     repo: 'http://github.com/teste/teste',
     linkDemo: 'https://dribbble.com/plainthingstudio',
-    thumbnail: 'project-base-img.svg'
+    thumbnail: '/images/nebulosa.jpg'
   }
 ];
