@@ -2,11 +2,13 @@ import Link from 'next/link';
 
 export function Logo() {
   return (
-    <Link
-      className="dark:bg-zinc-900 bg-zinc-300 w-10 h-10 flex items-center justify-center rounded-full relative z-10"
-      href="/"
-    >
-      ⚡
+    <Link href="/">
+      <h1 className="font-manrope md:block hidden text-zinc-50 font-bold">
+        Naianderson Bruno
+      </h1>
+      <h1 className="font-manrope md:hidden block text-zinc-50 font-bold text-2xl">
+        NB
+      </h1>
     </Link>
   );
 }

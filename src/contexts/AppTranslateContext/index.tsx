@@ -15,7 +15,7 @@ import {
 type Lang = 'en-US' | 'pt-BR';
 
 interface AppTranslateContextProps {
-  changeAppLanguage: (lang: Lang) => void;
+  changeAppLanguage: (lang: string) => void;
   translate: (value: string, key: string) => string;
 }
 
@@ -29,9 +29,9 @@ export const AppTranslateContext = createContext(
 
 export function AppTranslateProvider({ children }: AppTranslateProviderProps) {
   const [currentLanguage, setCurrentLanguage] = useState({} as Dictionary);
-  const [language, setLanguage] = useState<Lang>('en-US');
+  const [language, setLanguage] = useState('en-US');
 
-  const changeAppLanguage = useCallback((lang: Lang) => {
+  const changeAppLanguage = useCallback((lang: string) => {
     if (lang === 'en-US') setCurrentLanguage(enUS);
     if (lang === 'pt-BR') setCurrentLanguage(ptBR);
 

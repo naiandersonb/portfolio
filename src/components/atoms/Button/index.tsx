@@ -1,20 +1,40 @@
-import { classNames } from '@/utils';
-import { HtmlHTMLAttributes, ReactNode } from 'react';
+import Image from 'next/image';
+import { HtmlHTMLAttributes, useMemo } from 'react';
+import { ButtonProps as BProps } from './interface';
 
-interface ButtonProps extends HtmlHTMLAttributes<HTMLButtonElement> {
-  children: ReactNode;
-}
+type ButtonProps = HtmlHTMLAttributes<HTMLButtonElement> & BProps;
 
-export function Button({ children, ...rest }: ButtonProps) {
+export function Button({ children, icon, ...rest }: ButtonProps) {
+  const iconElement = useMemo(() => {
+    if (!icon) return null;
+
+    if (typeof icon === 'string')
+      return <Image width={17} height={17} alt="" src={icon} />;
+
+    return icon;
+  }, [icon]);
+
   return (
     <button
-      className={classNames(
-        'dark:bg-zinc-800 bg-zinc-300  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-3 py-2.5 text-center inline-flex items-center  dark:hover:bg-zinc-900 hover:bg-zinc-200 ring-zinc-300 dark:focus:ring-zinc-700 dark:text-zinc-50 text-zinc-900 transition-all',
-        rest.className
-      )}
+      className="
+        dark:bg-zinc-900 
+        bg-zinc-200 
+        dark:text-zinc-50 
+        text-zinc-900 
+        p-1 px-3 
+        rounded-full 
+        w-[max-content]
+      "
       {...rest}
     >
-      {children}
+      <div className="flex flex-row gap-2 items-center h-[20px]">
+        {!!iconElement && (
+          <div className="w-[20px] h-[20px] flex items-center justify-start">
+            {iconElement}{' '}
+          </div>
+        )}
+        {children}
+      </div>
     </button>
   );
 }
