@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Bebas_Neue } from 'next/font/google';
+import { Inter, Bebas_Neue, Manrope } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/organisms';
 import { Footer } from '@/components/molecules';
@@ -8,6 +8,11 @@ import { ReactNode } from 'react';
 
 const inter = Inter({
   variable: '--inter',
+  subsets: ['latin']
+});
+
+const manrope = Manrope({
+  variable: '--manrope',
   subsets: ['latin']
 });
 
@@ -29,7 +34,9 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="pt-BR" className="dark">
-      <body className={`${inter.variable} ${bebasNeue.variable}`}>
+      <body
+        className={`${inter.variable} ${manrope.variable} ${bebasNeue.variable}`}
+      >
         <AppTranslateProvider>
           <Header />
           {children}

@@ -3,10 +3,17 @@ import Link from 'next/link';
 export function Logo() {
   return (
     <Link
-      className="dark:bg-zinc-900 bg-zinc-300 w-10 h-10 flex items-center justify-center rounded-full relative z-10"
+      className="
+        dark:text-zinc-50 text-zinc-950 
+        max-w-[11ch] 
+        font-bold text-lg
+        flex items-center 
+        font-manrope justify-center 
+        rounded-full relative z-10
+      "
       href="/"
     >
-      ⚡
+      Naianderson Bruno
     </Link>
   );
 }

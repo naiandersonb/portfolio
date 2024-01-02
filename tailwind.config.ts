@@ -9,7 +9,8 @@ const config: Config = {
   theme: {
     fontFamily: {
       bebas: 'var(--bebas-neue)',
-      inter: 'var(--inter)'
+      inter: 'var(--inter)',
+      manrope: 'var(--manrope)'
     }
   },
   plugins: [],

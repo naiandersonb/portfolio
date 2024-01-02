@@ -10,7 +10,7 @@ export function Text({ children, ...rest }: TextProps) {
   return (
     <p
       className={classNames(
-        'font-inter dark:text-zinc-400 text-zinc-600',
+        'font-manrope dark:text-zinc-400 text-zinc-600',
         rest.className
       )}
       {...rest}
